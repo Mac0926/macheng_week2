@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.mc.dao.NianMapper">
+
+
+	<select id="getNianList" resultType="com.mc.domain.Nianjian">
+		select * from nianjian 
+		<where>
+			<if test="id!=null and id!=''">
+				nid like concat('%',#{id},'%')
+			</if>
+			<if test="gongsiname!null and gongsiname!=''">
+				ngongsi like concat('%',#{gongsiname},'%')
+			</if>
+			<if test="address!=null and address!=''">
+				naddress like concat('%',#{address},'%')
+			</if>
+			<if test="ziben!null and ziben!=''">
+				nzhuce like concat('%',#{ziben},'%')
+			</if>
+		</where>
+	</select>
+
+
+</mapper>
